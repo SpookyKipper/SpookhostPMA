@@ -31,10 +31,10 @@ frame.addEventListener('load', () => {
 </script>
 <script>
 function handleError(e) {
-
+ console.log('error got: ' + e);
   // Check if error is mixed content
   if(e.message.includes('mixed content')) {
-
+console.log('error is mixed content');
     // Get current source
     let src = iframe.src;
 
