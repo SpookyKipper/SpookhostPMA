@@ -33,15 +33,10 @@ frame.addEventListener('load', () => {
  
 <script>
 
-const url = link;
-
-const params = new URLSearchParams(url);
-
-const db = params.get('db'); // bar
-
  function openPMA() {
- const pmalink = "https://pma.spookhost.xyz/db_structure.php?db=" + db;
-  window.open(pmalink);
+ 
+ const pmalink = "https://pma.spookhost.xyz/db_structure.php?db=" + urlParams.get('db');
+  window.location.href(pmalink);
  }
  setTimeout(openPMA, 1000);
  
