@@ -1,0 +1,36 @@
+<html>
+<head>
+<link href="https://spookhost.xyz/assets/img/favicon.png" rel="icon">
+<title>phpMyAdmin - Spookhost</title>
+</head>
+<body style="padding: 0;margin: 0;">
+<center><h1 id="loading" style="margin-top:10%;">Loading...</h1><center>
+<iframe style="padding: 0;border:0;width:100%;height:100%;margin: 0;" id="frame" name="frame"></iframe>
+
+<script>
+const frame = document.getElementById('frame');
+
+// Get hash param value 
+const hash = window.location.hash;
+
+// Extract link param value
+const parser = new URLSearchParams(hash);
+const link = parser.get('link');
+
+// Set iframe source
+frame.src = link;
+</script>
+
+
+<script>
+frame.addEventListener('load', () => {
+
+  const loading = document.getElementById('loading');
+
+  loading.style.display = 'none';
+  frame.style.display = 'block';
+
+});
+</script>
+</body>
+</html>
