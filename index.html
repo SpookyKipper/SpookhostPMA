@@ -36,7 +36,7 @@ function handleError(e) {
   if(e.message.includes('mixed content')) {
 console.log('error is mixed content');
     // Get current source
-    let src = iframe.src;
+    let src = frame.src;
 
     // Replace HTTP with HTTPS
     src = src.replace('http://185.27.134.10', 'https://pma.spookhost.xyz');
