@@ -36,7 +36,7 @@ frame.addEventListener('load', () => {
  function openPMA() {
  
  const pmalink = "https://pma.spookhost.xyz/db_structure.php?db=" + urlParams.get('db');
-  window.location.href(pmalink);
+  window.location.href = pmalink;
  }
  setTimeout(openPMA, 1000);
  
