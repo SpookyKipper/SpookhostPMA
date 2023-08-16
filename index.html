@@ -35,7 +35,6 @@ frame.addEventListener('load', () => {
 const iframe = document.querySelector('#frame');
 
  
-window.addEventListener('error', handleMixedContent);
 
 function handleMixedContent(event) {
  console.log('Error caught: ' + event.message);
@@ -52,6 +51,7 @@ function handleMixedContent(event) {
   }
 
 }
+window.addEventListener('error', handleMixedContent);
 
  
 </script>
