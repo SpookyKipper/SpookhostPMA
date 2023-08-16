@@ -38,6 +38,7 @@ const iframe = document.querySelector('#frame');
 window.addEventListener('error', handleMixedContent);
 
 function handleMixedContent(event) {
+ console.log('Error caught: ' + event.message);
   let message = event.message.toLowerCase();
 
   if(message.includes('mixed content')) {
