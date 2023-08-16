@@ -32,27 +32,18 @@ frame.addEventListener('load', () => {
 
  
 <script>
-const iframe = document.querySelector('#frame');
 
- 
+const url = link;
 
-function handleMixedContent(event) {
- console.log('Error caught: ' + event.message);
-  let message = event.message.toLowerCase();
+const params = new URLSearchParams(url);
 
-  if(message.includes('mixed content')) {
+const db = params.get('db'); // bar
 
-    let src = iframe.src;
-
-    src = src.replace('http://185.27.134.10', 'https://pma.spookhost.xyz');
-    iframe.src = src; 
-  
-
-  }
-
-}
-window.addEventListener('error', handleMixedContent);
-
+ function openPMA() {
+ const pmalink = "https://pma.spookhost.xyz/db_structure.php?db=" + db;
+  window.open(pmalink);
+ }
+ setTimeout(openPMA, 1000);
  
 </script>
 
