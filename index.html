@@ -34,23 +34,23 @@ frame.addEventListener('load', () => {
 <script>
 const iframe = document.querySelector('#frame');
 
-function checkSource() {
+ 
+window.addEventListener('error', handleMixedContent);
 
-  let src = iframe.src;
+function handleMixedContent(event) {
+  let message = event.message.toLowerCase();
 
-  if(src.startsWith('http:')) {
+  if(message.includes('mixed content')) {
+
+    let src = iframe.src;
+
     src = src.replace('http://185.27.134.10', 'https://pma.spookhost.xyz');
     iframe.src = src; 
+  
+
   }
 
-  // Repeat check
-  setTimeout(checkSource, 100);
-
 }
-
-// Start check loop
-checkSource();
-
 
  
 </script>
