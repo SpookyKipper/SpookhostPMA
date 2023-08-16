@@ -29,28 +29,27 @@ frame.addEventListener('load', () => {
 
 });
 </script>
+
+ 
 <script>
-function handleError(e) {
- console.log('error got: ' + e);
-  // Check if error is mixed content
-  if(e.message.includes('mixed content')) {
-console.log('error is mixed content');
-    // Get current source
-    let src = frame.src;
+const iframe = document.querySelector('#frame');
 
-    // Replace HTTP with HTTPS
+function checkSource() {
+
+  let src = iframe.src;
+
+  if(src.startsWith('http:')) {
     src = src.replace('http://185.27.134.10', 'https://pma.spookhost.xyz');
-
-    // Update iframe source
-    frame.src = src;
-
+    iframe.src = src; 
   }
+
+  // Repeat check
+  setTimeout(checkSource, 100);
 
 }
 
- 
-// Listen for error on iframe
-frame.addEventListener('error', handleError); 
+// Start check loop
+checkSource();
 
 
  
