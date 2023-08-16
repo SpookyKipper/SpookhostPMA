@@ -10,12 +10,9 @@
 <script>
 const frame = document.getElementById('frame');
 
-// Get hash param value 
-const hash = window.location.hash;
-
-// Extract link param value
-const parser = new URLSearchParams(hash);
-const link = parser.get('link');
+ const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const link = urlParams.get('link');
 
 // Set iframe source
 frame.src = link;
